@@ -62,9 +62,10 @@ function App() {
   }, [undefined]);
 
   // useEffect for the same 'problem' in the favorites
-  // useEffect(() => {
-  //   addFavourite(movies);
-  // }, [undefined]);
+  // aquiii
+  useEffect(() => {
+    addFavourite(movies);
+  }, [undefined]);
 
   // useEffect for retriving the localStorage favorited movies
   useEffect(() => {

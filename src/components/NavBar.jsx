@@ -7,14 +7,17 @@ export default function NavBar() {
       <Link to="/">
         <p>Home</p>
       </Link>
+      <Link to="/movies">
+        <p>Top Movies</p>
+      </Link>
       <Link to="/series">
-        <p>Series</p>
+        <p>Top Series</p>
       </Link>
       <Link to="/search">
-        <p>Search</p>
+        <p>Search Movies</p>
       </Link>
       <Link to="/favorites">
-        <p>Favorites</p>
+        <p>Your Favorites</p>
       </Link>
     </div>
   );
