@@ -1,4 +1,5 @@
 import React from "react";
+import "../styles/components/searchbox.sass";
 
 export default function SearchBox({ search, setSearch, handleSubmit }) {
   return (

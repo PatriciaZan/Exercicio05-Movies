@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./App.css";
+import "./styles/main.sass";
 import axios from "axios";
 
 import SearchBox from "./components/SearchBox";

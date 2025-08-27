@@ -1,7 +1,9 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+
+import "../styles/pages/movies.sass";
+
 import Banner from "../components/Banner";
-//import MoviesList from "../components/MoviesList";
 import MovieCard from "../components/MovieCard";
 
 export default function Movies() {
@@ -54,23 +56,23 @@ export default function Movies() {
     <>
       {loading ? (
         <p>...Loading</p>
-      ) : trendingMovies && trendingMovies.length > 1 ? (
+      ) : trendingMovies && trendingMovies.length > 0 ? (
         <div>
           <Banner
             title={trendingMovies[0].original_title}
             poster={trendingMovies[0].backdrop_path}
+            cardImg={trendingMovies[0].poster_path}
+            about={trendingMovies[0].overview}
           />
-          {/* {trendingMovies.map((item) => (
-            // must add key
-            <p>{item.original_title}</p>
-          ))} */}
-          {trendingMovies.map((item) => (
-            <MovieCard
-              title={item.original_title}
-              poster={item.poster_path}
-              about={item.overview}
-            />
-          ))}
+          <div className="movies-container">
+            {trendingMovies.map((item) => (
+              <MovieCard
+                title={item.original_title}
+                poster={item.poster_path}
+                about={item.overview}
+              />
+            ))}
+          </div>
         </div>
       ) : (
         <p>Error fetching data.... try again :/</p>

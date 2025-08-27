@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import "../styles/pages/movies.sass";
 import Banner from "../components/Banner";
 import MovieCard from "../components/MovieCard";
 
@@ -57,16 +58,20 @@ export default function Series() {
             <Banner
               title={trendingSeries[0].original_name}
               poster={trendingSeries[0].backdrop_path}
+              cardImg={trendingSeries[0].poster_path}
+              about={trendingSeries[0].overview}
             />
-            {trendingSeries.map((item) => (
-              // must add key
-              <MovieCard
-                title={item.original_name}
-                poster={item.poster_path}
-                about={item.overview}
-              />
-              //<p>{item.original_name}</p>
-            ))}
+            <div className="movies-container">
+              {trendingSeries.map((item) => (
+                // must add key
+                <MovieCard
+                  title={item.original_name}
+                  poster={item.poster_path}
+                  about={item.overview}
+                />
+                //<p>{item.original_name}</p>
+              ))}
+            </div>
           </div>
         ) : (
           <p>Loading...</p>

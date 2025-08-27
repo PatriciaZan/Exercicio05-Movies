@@ -1,14 +1,15 @@
 import React from "react";
+import "../styles/components/movieCard.sass";
 // Lidando nesse aqui!
-export default function MovieCard({ title, poster, overview }) {
+export default function MovieCard({ title, poster, about }) {
   return (
-    <div>
-      <h3>{title}</h3>
+    <div className="movieCard-container">
       <img
+        className="movieCard-img"
         src={`https://image.tmdb.org/t/p/original${poster}`}
         alt=""
-        width="100px"
       />
+      <h3>{title}</h3>
     </div>
   );
 }

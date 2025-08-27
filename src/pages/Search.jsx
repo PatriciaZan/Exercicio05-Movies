@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 //import "./App.css";
+import "../styles/pages/search.sass";
 import axios from "axios";
 
 import SearchBox from "../components/SearchBox";
@@ -96,7 +97,7 @@ function App() {
 
   return (
     <>
-      <div>
+      <div className="searchbox-container">
         <SearchBox
           search={search}
           setSearch={setSearch}

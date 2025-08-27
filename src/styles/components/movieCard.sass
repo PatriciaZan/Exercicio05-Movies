@@ -1,0 +1,38 @@
+@use '../variables'
+
+
+.movieCard-container
+    min-width: 250px
+    min-height: 300px
+    margin: 10px
+    padding: 10px
+    border-radius: 10px
+    background-color: variables.$clr-movieCard-bk
+
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-items:  center
+    gap: 10px
+
+    cursor: pointer
+    transition: transform 0.5s;
+
+    .movieCard-img
+        max-width: 220px
+        border-radius: 5px
+    
+    h3
+        background-color: transparent
+
+
+.movieCard-container:hover
+    transform: translateY(-20px);
+    background: linear-gradient(45deg, #b9b9b9, #f13778);
+
+
+.movieCard-container:hover
+    width: 100%
+    height: 100%
+    background: linear-gradient(45deg, #b9b9b9, #c02f62);
+    //filter: blur(30px)
