@@ -6,11 +6,13 @@ export default function SearchBox({ search, setSearch, handleSubmit }) {
     <div>
       <form action="" onSubmit={(e) => handleSubmit(e)}>
         <input
+          className="search-input"
+          placeholder="Search a movie...."
           type="text"
           //value={value}
           onChange={(e) => setSearch(e.target.value)}
         />
-        <button>Search</button>
+        <button className="search-Btn">Search</button>
       </form>
     </div>
   );

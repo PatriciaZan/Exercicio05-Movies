@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import MovieInfo from "./MovieInfo";
 
+import "../styles/components/moviesList.sass";
+
 export default function MoviesList({ movies, handleFavourite, favouriteBtn }) {
   // Components must start with upperCase,
   const FavouriteBtn = favouriteBtn;
@@ -28,15 +30,16 @@ export default function MoviesList({ movies, handleFavourite, favouriteBtn }) {
   };
 
   return (
-    <div className="container-movies" style={{ display: "flex" }}>
+    <div style={{ display: "flex" }}>
       {displayMovies.map((movie, i) => (
-        <div key={i}>
+        <div key={i} className="container-movies">
           <img
+            className="moviesList-img"
             style={{ width: "200px" }}
             src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
             alt={movie.title}
           />
-          <h3>{movie.title}</h3>
+          <h3 className="moviesList-h3">{movie.title}</h3>
           <p>{movie.release_date}</p>
           <div onClick={() => handleFavourite(movie)}>
             <FavouriteBtn />
@@ -48,8 +51,12 @@ export default function MoviesList({ movies, handleFavourite, favouriteBtn }) {
         </div>
       ))}
 
-      <button onClick={prevePage}>Prev</button>
-      <button onClick={nextPage}>Next</button>
+      <button className="moviesList-btn" onClick={prevePage}>
+        &#8592;
+      </button>
+      <button className="moviesList-btn" onClick={nextPage}>
+        Next
+      </button>
     </div>
   );
 }

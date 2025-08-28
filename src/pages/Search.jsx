@@ -96,7 +96,7 @@ function App() {
   };
 
   return (
-    <>
+    <div className="search-container">
       <div className="searchbox-container">
         <SearchBox
           search={search}
@@ -105,7 +105,7 @@ function App() {
         />
       </div>
 
-      <div>
+      <div className="searchMovies-margin searchMovies-container">
         {movies && movies.length > 0 ? (
           <MoviesList
             movies={movies}
@@ -113,11 +113,11 @@ function App() {
             favouriteBtn={AddFavourites}
           />
         ) : (
-          <p>Search movies</p>
+          <p>Search a Movie</p>
         )}
       </div>
 
-      <div>
+      <div className="searchMovies-container">
         <h2>Favourites</h2>
         {favourites && favourites.length > 0 ? (
           <MoviesList
@@ -129,7 +129,7 @@ function App() {
           <p>Add movies</p>
         )}
       </div>
-    </>
+    </div>
   );
 }
 
