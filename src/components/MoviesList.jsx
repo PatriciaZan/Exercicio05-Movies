@@ -51,11 +51,11 @@ export default function MoviesList({ movies, handleFavourite, favouriteBtn }) {
         </div>
       ))}
 
-      <button className="moviesList-btn" onClick={prevePage}>
-        &#8592;
+      <button className="moviesList-btn moviesLista-rotate" onClick={prevePage}>
+        &#10140;
       </button>
       <button className="moviesList-btn" onClick={nextPage}>
-        Next
+        &#10140;
       </button>
     </div>
   );
