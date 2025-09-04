@@ -1,16 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../styles/components/navBar.sass";
+
+import "../styles/components/navbar.sass";
 
 export default function NavBar() {
   return (
     <div className="navBar-container">
-      <p>Cinema</p>
+      <p className="navbar-title">Cinema</p>
       <div className="navBar-links">
         <Link to="/">
-          <p>Home</p>
-        </Link>
-        <Link to="/movies">
           <p>Top Movies</p>
         </Link>
         <Link to="/series">

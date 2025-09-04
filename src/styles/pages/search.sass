@@ -1,27 +1,28 @@
 @use '../variables'
 
 .search-container
-    margin: 120px auto 0 auto
-    width: 100vw
-    height: 100vh
-    //background: white
-    position: absolute
+    margin: 100px auto
+    width: 80vw
+    // border: 1px solid red
 
-//.searchMovies-margin 
+    .serch-input
+        margin: auto
+        // border: 1px solid blue
+        width: 60%
 
-.searchbox-container
-    margin: auto
-    width: 50%
-    padding: 20px
-    //border: 1px solid red
-    background-color: variables.$clr-movieCard-bk
-    border-radius: 30px
+        form 
+            input
+                font-size: 20px
+                padding: 15px
+                border-radius: 10px
+                border: none
+                width: 80%
+                margin-right: 10px
 
-.searchMovies-container
-    border: 1px solid red
-    width: 80%
-    margin: 20px auto 0 auto
-    
-    display: flex
-    flex-direction: column
-    align-items: center
+            button
+                font-size: 20px
+                padding: 15px
+                border-radius: 10px
+                border: none
+                width: 18%
+        

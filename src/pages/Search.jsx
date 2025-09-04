@@ -1,31 +1,28 @@
-import { useEffect, useState } from "react";
-//import "./App.css";
-import "../styles/pages/search.sass";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
+import Card from "../components/Card";
 
-import SearchBox from "../components/SearchBox";
-import MoviesList from "../components/MoviesList";
+import "../styles/pages/search.sass";
 
-// For the diferent options of favorites
-import AddFavourites from "../components/AddFavourites";
-import RemoveFavourites from "../components/RemoveFavourites";
+//import { FavoriteContext } from "../context/GlobalContext";
 
-function App() {
-  const [search, setSearch] = useState("");
-  const [movies, setMovies] = useState([]);
-  //const [loading, setLoading] = useState(false);
-  const [favourites, setFavourites] = useState([]);
+export default function Search() {
+  const [searchInput, setSearchInput] = useState("");
+  const [searchMovies, setSearchMovies] = useState([]);
+  const [pageNumber, setPageNumber] = useState(1);
+  //console.log("SEARCH INPUT: ", searchInput);
 
-  // Handling the API CALL
-  // Setting the default axios options
+  //const FavContext = useContext(FavoriteContext);
+  //console.log("FAVCONTEXT: ", FavContext);
+
   const options = {
     method: "GET",
     url: "https://api.themoviedb.org/3/search/movie",
     params: {
-      query: `${search}`,
+      query: `${searchInput}`,
       include_adult: "false",
       language: "en-US",
-      page: "1",
+      page: `${pageNumber}`,
     },
     headers: {
       accept: "application/json",
@@ -34,103 +31,65 @@ function App() {
     },
   };
 
-  // Making the API CALL
   async function fetchData() {
     try {
       const response = await axios.request(options);
       const data = response.data;
-      setMovies(data.results); // must be .results or will pass as an object
-      //setLoading(true);
-      console.log("MOVIES: ", movies);
-      //console.log("MOVIE RESULTS: ", movies.results);
+      setSearchMovies(data.results);
+      //console.log("MOVIES: ", searchMovies);
     } catch (err) {
       console.log("ERRO: ", err);
     }
   }
 
-  // Making a Func to handle a click event, so the search is only
-  // done after the user is done typing.
   const handleSubmit = (e) => {
     e.preventDefault();
-    //console.log("HANDLESUBMIT AQUI");
-    // call for the app to be executed
     fetchData();
   };
 
-  // useEffect will run once on the init of the page, avoiding the undefine array valuess
+  // handles next result page
   useEffect(() => {
-    fetchData(search);
+    fetchData(searchMovies);
   }, [undefined]);
 
-  // useEffect for the same 'problem' in the favorites
-  // aquiii
   useEffect(() => {
-    addFavourite(movies);
-  }, [undefined]);
+    //console.log("PAGE CHANGED TO: ", pageNumber);
+    fetchData(searchMovies);
+  }, [pageNumber]);
 
-  // useEffect for retriving the localStorage favorited movies
-  useEffect(() => {
-    const movieFavsLocal = JSON.parse(localStorage.getItem("movie-app-favs"));
+  console.log("SEARCH MOVIES ", searchMovies);
 
-    setFavourites(movieFavsLocal);
-  }, []);
-
-  const localStorageSave = (items) => {
-    localStorage.setItem("movie-app-favs", JSON.stringify(items));
+  const handleNextPage = () => {
+    setPageNumber(pageNumber + 1);
   };
 
-  // Manages the Favorites option and storing in localStorage
-  const addFavourite = (movie) => {
-    const newFavouriteArray = [...favourites, movie];
-    setFavourites(newFavouriteArray);
-    console.log("FAVORITE: ", favourites);
-    localStorageSave(newFavouriteArray);
-  };
-
-  const removeFavourites = (movie) => {
-    const newFavouriteArray = favourites.filter(
-      (favourite) => favourite.id !== movie.id
-    );
-    setFavourites(newFavouriteArray);
-    localStorageSave(newFavouriteArray);
+  const handlePrevPage = () => {
+    setPageNumber(pageNumber - 1);
   };
 
   return (
     <div className="search-container">
-      <div className="searchbox-container">
-        <SearchBox
-          search={search}
-          setSearch={setSearch}
-          handleSubmit={handleSubmit}
-        />
+      <div className="serch-input">
+        <form action="" onSubmit={(e) => handleSubmit(e)}>
+          <input
+            type="text"
+            placeholder="Movie or Series name..."
+            onChange={(e) => setSearchInput(e.target.value)}
+          />
+          <button>Search</button>
+        </form>
       </div>
 
-      <div className="searchMovies-margin searchMovies-container">
-        {movies && movies.length > 0 ? (
-          <MoviesList
-            movies={movies}
-            handleFavourite={addFavourite}
-            favouriteBtn={AddFavourites}
-          />
+      <button onClick={handlePrevPage}>Prev</button>
+      <button onClick={handleNextPage}>Next</button>
+      <div>
+        <h1>Results</h1>
+        {searchMovies && searchMovies.length > 0 ? (
+          <Card content={searchMovies} removeBtn={false} />
         ) : (
-          <p>Search a Movie</p>
-        )}
-      </div>
-
-      <div className="searchMovies-container">
-        <h2>Favourites</h2>
-        {favourites && favourites.length > 0 ? (
-          <MoviesList
-            movies={favourites}
-            handleFavourite={removeFavourites}
-            favouriteBtn={RemoveFavourites}
-          />
-        ) : (
-          <p>Add movies</p>
+          <p>Search a movie or series name to display here...</p>
         )}
       </div>
     </div>
   );
 }
-
-export default App;
