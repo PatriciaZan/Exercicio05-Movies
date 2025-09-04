@@ -18,7 +18,7 @@ export default function TopMovies() {
     },
   };
 
-  // Makes a request when firts laoding the page
+  // Makes a request when first laoding the page
   useEffect(() => {
     async function fetchTrendingMovies() {
       try {

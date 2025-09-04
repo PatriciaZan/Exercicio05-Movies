@@ -8,9 +8,9 @@ export default function Favorites() {
 
   const [refresh, setRefresh] = useState(true);
 
-  console.log("FAV LOCAL: ", favoritesLocal);
+  //console.log("FAV LOCAL: ", favoritesLocal);
   const favoriteLength = favoritesLocal.length;
-  console.log(favoriteLength);
+  //console.log(favoriteLength);
 
   useEffect(() => {
     const localStorageData = JSON.parse(

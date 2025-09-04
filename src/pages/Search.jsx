@@ -47,7 +47,7 @@ export default function Search() {
     fetchData();
   };
 
-  // handles next result page
+  // Handles next result page
   useEffect(() => {
     fetchData(searchMovies);
   }, [undefined]);

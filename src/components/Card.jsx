@@ -39,12 +39,12 @@ export default function Card({ content, addBtn, removeBtn, status }) {
   const handleAddFavorite = (item) => {
     //console.log("ADD FAVORITE");
     if (storeIds.includes(item.id)) {
-      console.log("Já está nos favoritos");
+      //console.log("Já está nos favoritos");
     } else {
       // Cria um array que irá conter os ids, serve para checar se o item já foi adicionado
       const newId = [...storeIds, item.id];
       setStoredIds(newId);
-      console.log("ID: ", storeIds);
+      //console.log("ID: ", storeIds);
 
       // Se ele não foi adicionado antes agora ele é adicionado
       const newFavouriteArray = [...favorites, item];
@@ -97,7 +97,8 @@ export default function Card({ content, addBtn, removeBtn, status }) {
                 alt=""
                 style={{ width: "200px" }}
               />
-              {/* <h3>{item.title}</h3> */}
+              {/* <h3>{item.title}</h3> */}{" "}
+              {/* Descomente esta linha para visualizar o titulo */}
             </div>
 
             <div className="card-btns">
