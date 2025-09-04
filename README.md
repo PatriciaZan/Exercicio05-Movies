@@ -73,13 +73,13 @@ Ao decorrer do projeto decidi separar a página de busca com os favoritos. Inici
 ## Prints das páginas
 
 Página Principal - Top Movies
-![Pagina Top Movies]('./prints/TopMovies.pgn)
+<img src="./prints/TopMovies.png">
 
 Página - Top Series
-![Página Top Series]('./prints/TopSeries.png)
+<img src="./prints/TopSeries.png">
 
 Página - Pesquisa de series e filmes
-![Página Search Movies]('./prints/SearchMovies.png)
+<img src="./prints/SearchMovies.png">
 
 Página - Favoritos
-![Página Favorites]('./prints/favorites.png)
+<img src="./prints/favorites.png">
