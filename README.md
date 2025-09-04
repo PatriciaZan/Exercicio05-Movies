@@ -1,6 +1,6 @@
 # Exercio TMDB API 📘
 
-- [Visite o site/Ainda não disponivél]()
+- [Visite o site :D ](https://tmdb-api-patricia.netlify.app/)
 
 Este projeto foi realizado para o curso de dev fullStack da +praTI. 📝
 Consumindo a API da TMDB onde deveriam ser entregues as seguintes funcionalidades obrigatórias:
@@ -47,7 +47,7 @@ Este projeto utiliza:
 - Axios - para a requisição e consumo das APIs.
 - Reack-router-dom - para o Rotiamento de páginas dentro da aplicação (BrowserRouter, Routes, Route, Links, Outlets).
 
-## Bugs conhecidos
+## Bugs conhecidos 👀
 
 Ao decorrer do projeto decidi separar a página de busca com os favoritos. Inicialmente aparentava ser algo simples porém me deparei com um novo problema no localStorage.
 
@@ -70,7 +70,7 @@ Ao decorrer do projeto decidi separar a página de busca com os favoritos. Inici
 5. Não apresenta responsividade dedicada
    - Uma vez que não era uma requisição da tarefa e foquei nas chamadas da API.
 
-## Prints das páginas
+## Prints das Páginas 📸
 
 Página Principal - Top Movies
 <img src="./prints/TopMovies.png">
