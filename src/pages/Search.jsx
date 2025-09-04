@@ -17,7 +17,7 @@ export default function Search() {
 
   const options = {
     method: "GET",
-    url: "https://api.themoviedb.org/3/search/movie",
+    url: "https://api.themoviedb.org/3/search/multi",
     params: {
       query: `${searchInput}`,
       include_adult: "false",
@@ -80,8 +80,12 @@ export default function Search() {
         </form>
       </div>
 
-      <button onClick={handlePrevPage}>Prev</button>
-      <button onClick={handleNextPage}>Next</button>
+      <button className="search-btnsPages" onClick={handlePrevPage}>
+        ◀
+      </button>
+      <button className="search-btnsPages" onClick={handleNextPage}>
+        ▶
+      </button>
       <div>
         <h1>Results</h1>
         {searchMovies && searchMovies.length > 0 ? (

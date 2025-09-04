@@ -91,9 +91,8 @@ export default function About({ modalContent, onClose, status }) {
       <h2 className="about-modal-movieTitle">{title}</h2>
       <div className="about-modal-content">
         <p>{modalContent.overview}</p>
-        <div>
-          <p>{modalContent.release_date}</p>
-        </div>
+        <p>Release in: {modalContent.release_date}</p>
+        <p>⭐{modalContent.vote_average}</p>
       </div>
 
       <div className="about-modal-card-cast">

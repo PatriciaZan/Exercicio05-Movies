@@ -32,7 +32,7 @@ export default function Card({ content, addBtn, removeBtn, status }) {
   //using localStorage to persist data and access in more pages
   const localStorageSave = (items) => {
     localStorage.setItem("Favorite-movies", JSON.stringify(items));
-    //
+
     //window.dispatchEvent(new Event("Storage"));
   };
 
@@ -48,6 +48,7 @@ export default function Card({ content, addBtn, removeBtn, status }) {
 
       // Se ele não foi adicionado antes agora ele é adicionado
       const newFavouriteArray = [...favorites, item];
+      alert("Added to Favorites");
       setFavorites(newFavouriteArray);
       //console.log("FAVORITE: ", favorites);
       localStorageSave(newFavouriteArray);
@@ -59,6 +60,7 @@ export default function Card({ content, addBtn, removeBtn, status }) {
     const newFavoriteArray = favorites.filter(
       (favorite) => favorite.id !== item.id
     );
+    alert("Removed from favorites");
     setFavorites(newFavoriteArray);
     localStorageSave(newFavoriteArray);
   };
@@ -90,6 +92,7 @@ export default function Card({ content, addBtn, removeBtn, status }) {
           <div className="card-box">
             <div className="card-content">
               <img
+                onClick={() => toggleModal(item)}
                 src={`https://image.tmdb.org/t/p/original${item.poster_path}`}
                 alt=""
                 style={{ width: "200px" }}
@@ -101,9 +104,7 @@ export default function Card({ content, addBtn, removeBtn, status }) {
               {addBtn === false ? (
                 <p className="p-off"></p>
               ) : (
-                <button onClick={() => handleAddFavorite(item)}>
-                  Add to Favorites
-                </button>
+                <button onClick={() => handleAddFavorite(item)}>❤</button>
               )}
 
               {removeBtn === false ? (
@@ -117,7 +118,7 @@ export default function Card({ content, addBtn, removeBtn, status }) {
                   ❤
                 </button>
               )}
-              <button onClick={() => toggleModal(item)}>About</button>
+              {/* <button onClick={() => toggleModal(item)}>About</button> */}
             </div>
           </div>
         ))}

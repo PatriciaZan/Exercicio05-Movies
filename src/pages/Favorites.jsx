@@ -22,7 +22,7 @@ export default function Favorites() {
   return (
     <div className="favories-container">
       <h1>Your Favorites</h1>
-      <button onClick={() => setRefresh(!refresh)}>Refresh Page</button>
+      <button onClick={() => setRefresh(!refresh)}>Update Favorites</button>
       {favoritesLocal && favoritesLocal.length > 0 ? (
         <Card content={favoritesLocal} addBtn={false} status={"favorites"} />
       ) : (
